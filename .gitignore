@@ -1,0 +1,12 @@
+.directory
+/*
+!.vimrc
+!/colors/
+!/bundle
+/bundle/*
+!/bundle/vundle/
+!/tools
+!.editorconfig
+!README.md
+!.gitignore
+!.git
