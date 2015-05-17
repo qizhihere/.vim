@@ -15,4 +15,8 @@ This is my personal vim configs git repo.
     * open vim
     * :BundleInstall and waiting for installation
 
-4. restart vim and enjoy!
+4. install the following essential packages:
+    * [nodejs](http://nodejs.org/) or [V8](http://code.google.com/p/v8/) for js-beautify
+    * ctags for tagbar
+
+5. restart vim and enjoy!
