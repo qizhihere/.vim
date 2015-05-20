@@ -22,7 +22,7 @@ hi MoreMsg		  term=bold  cterm=bold  ctermfg=darkgreen	gui=bold  guifg=SeaGreen
 hi ModeMsg		  term=bold  cterm=bold  gui=bold  guifg=White	guibg=Blue
 hi LineNr		  term=underline  cterm=bold  ctermfg=darkcyan	guifg=Yellow
 hi Question		  term=standout  cterm=bold  ctermfg=darkgreen	gui=bold  guifg=Green
-hi StatusLine	  term=bold,reverse  cterm=bold ctermfg=lightblue ctermbg=black gui=bold guifg=blue guibg=white
+hi StatusLine	  term=bold,reverse  cterm=bold ctermfg=lightblue ctermbg=none gui=bold guifg=blue guibg=white
 hi StatusLineNC   term=reverse	ctermfg=black ctermbg=lightblue guifg=black guibg=blue
 hi Title		  term=bold  cterm=bold  ctermfg=darkmagenta  gui=bold	guifg=Magenta
 hi Visual		  term=reverse	cterm=reverse  gui=reverse
@@ -40,9 +40,9 @@ hi Todo			  term=standout  ctermfg=black	ctermbg=darkcyan  guifg=Blue  guibg=Yel
 hi CursorLine	  term=underline  guibg=#555555 cterm=underline
 hi CursorColumn	  term=underline  guibg=#555555 cterm=underline
 hi MatchParen	  term=reverse  ctermfg=blue guibg=Blue
-hi TabLine		  term=bold,reverse  cterm=bold ctermfg=lightblue ctermbg=white gui=bold guifg=blue guibg=white
-hi TabLineFill	  term=bold,reverse  cterm=bold ctermfg=lightblue ctermbg=white gui=bold guifg=blue guibg=white
-hi TabLineSel	  term=reverse	ctermfg=white ctermbg=lightblue guifg=white guibg=blue
+hi TabLine		  term=bold,reverse  cterm=bold ctermfg=white ctermbg=none gui=bold guifg=blue guibg=white
+hi TabLineFill	  term=bold,reverse  cterm=bold ctermfg=black ctermbg=none gui=bold guifg=blue guibg=white
+hi TabLineSel	  term=reverse	ctermfg=172 ctermbg=none guifg=white guibg=blue
 hi Underlined	  term=underline cterm=bold,underline ctermfg=lightblue guifg=lightblue gui=bold,underline
 hi Ignore		  ctermfg=black ctermbg=black guifg=black guibg=black
 hi link IncSearch		Visual
