@@ -233,17 +233,6 @@ let g:sneak#s_next = 1
 
 
 """""""""""""""""""""""
-"设置ultisnips
-"""""""""""""""""""""""
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-
-
-"""""""""""""""""""""""
 "设置TagmaBufMgr
 """""""""""""""""""""""
 let g:TagmaBufMgrLastLine = 1
@@ -330,6 +319,8 @@ Bundle 'gmarik/vundle'
 "在多窗口中切换时自动增大当前窗口
 "Bundle 'zhaocai/GoldenView.Vim'
 
+Bundle 'jiangmiao/auto-pairs'
+
 "使用s/S快速跳转(2个字符)
 Bundle 'justinmk/vim-sneak'
 
@@ -372,7 +363,6 @@ Bundle 'Shougo/neocomplcache'
 "neocomplcache的代码段
 Bundle 'Shougo/neosnippet'
 Bundle 'Shougo/neosnippet-snippets'
-Bundle 'JazzCore/neocomplcache-ultisnips'
 
 "行缩进辅助虚线显示，利用了vim7.3以后
 "的Conceal特性。读取大文件速度慢，需要
