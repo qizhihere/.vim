@@ -197,6 +197,13 @@ let g:tagbar_width=30
 
 
 """"""""""""""""""
+"设置git gutter
+""""""""""""""""""
+nmap ]g <Plug>GitGutterNextHunk
+nmap [g <Plug>GitGutterPrevHunk
+nmap <Leader>gv <Plug>GitGutterPreviewHunk
+
+""""""""""""""""""
 "设置undotree
 """"""""""""""""""
 "开启persistent_undo,将撤销历史通过session保存在文件中
