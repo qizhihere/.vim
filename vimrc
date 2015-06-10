@@ -2,7 +2,7 @@
 "设置终端显示颜色数
 set t_Co=256
 "set term=xterm-256color
-colorscheme koehler
+colorscheme zenburn
 " 设置终端背景,如solarized-dark和solarized-light就需要设置此选项
 "set background=dark
 
@@ -319,7 +319,14 @@ Bundle 'gmarik/vundle'
 "在多窗口中切换时自动增大当前窗口
 "Bundle 'zhaocai/GoldenView.Vim'
 
+"在左侧标记git状态(添加、删除行)
+Bundle 'airblade/vim-gitgutter'
+
+"成对输入括号引号
 Bundle 'jiangmiao/auto-pairs'
+
+"Zenburn主题
+Bundle 'jnurmine/Zenburn'
 
 "使用s/S快速跳转(2个字符)
 Bundle 'justinmk/vim-sneak'
