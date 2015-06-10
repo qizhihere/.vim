@@ -126,7 +126,7 @@ set formatoptions+=mM
 set nocursorline
 
 "在行和段开始处使用制表符
-set smarttab 
+set smarttab
 "tab缩进宽度
 set tabstop=4
 
@@ -331,9 +331,6 @@ Bundle 'airblade/vim-gitgutter'
 
 "成对输入括号引号
 Bundle 'jiangmiao/auto-pairs'
-
-"Zenburn主题
-Bundle 'jnurmine/Zenburn'
 
 "使用s/S快速跳转(2个字符)
 Bundle 'justinmk/vim-sneak'
