@@ -442,13 +442,13 @@ filetype indent on
 "设置Emmet开启模式(n:normal,a:all,inv)
 let g:user_emmet_mode='i'
 "设置Emmet触发键
-let g:user_emmet_expandabbr_key = '<C-y>'
+let g:user_emmet_expandabbr_key = '<C-j>'
 
 
 """"""""""""""""""""""""
 "indentline设置
 """"""""""""""""""""""""
-"let g:indentLine_color_term = 239
+let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
 "解决打开大文件卡的问题
 let g:indentLine_faster = 1
