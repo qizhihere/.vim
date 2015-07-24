@@ -329,7 +329,7 @@ if exists("g:zenburn_force_dark_Background") && g:zenburn_force_dark_Background
 endif
 
 if exists("g:zenburn_transparent") && g:zenburn_transparent
-    hi Normal             ctermbg=0     guibg=#000000
+    hi Normal             ctermbg=NONE     guibg=#000000
     hi Statement          ctermbg=NONE
     hi Title              ctermbg=NONE
     hi Todo               ctermbg=NONE
@@ -338,6 +338,8 @@ if exists("g:zenburn_transparent") && g:zenburn_transparent
     hi DiffText           ctermbg=NONE
     hi ErrorMsg           ctermbg=NONE
     hi LineNr             ctermbg=NONE
+    hi StatusLine         ctermbg=NONE
+    hi StatusLineNC       ctermbg=NONE
 endif
 
 if exists("g:zenburn_old_Visual") && g:zenburn_old_Visual

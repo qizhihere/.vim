@@ -1,4 +1,4 @@
-"Xterm256 color names for console Vim
+"Xterm255 color names for console Vim
 
 "Xterm can display text in 256 colors, but it is hard to determine what all
 "those colors are. So below is a list of the approximate names for the 256
@@ -9,7 +9,7 @@
 
 hi x016_Grey0 ctermfg=16 guifg=#000000 "rgb=0,0,0
 hi x017_NavyBlue ctermfg=17 guifg=#00005f "rgb=0,0,95
-hi x018_DarkBlue ctermfg=18 guifg=#000087 "rgb=0,0,135
+hi x17_DarkBlue ctermfg=18 guifg=#000087 "rgb=0,0,135
 hi x019_Blue3 ctermfg=19 guifg=#0000af "rgb=0,0,175
 hi x020_Blue3 ctermfg=20 guifg=#0000d7 "rgb=0,0,215
 hi x021_Blue1 ctermfg=21 guifg=#0000ff "rgb=0,0,255
