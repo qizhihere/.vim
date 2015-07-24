@@ -533,7 +533,7 @@ noremap <silent> <leader>q :q!<CR>
 noremap <silent> <leader>qa :qa!<CR>
 
 "快速打开文件
-nnoremap ,e :e $HOME/.vimrc<CR>
+nnoremap ,e :e $HOME/.vim/vimrc<CR>
 
 "快速查看vim帮助
 noremap <leader>h :h <C-r><C-w><CR>
