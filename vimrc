@@ -2,21 +2,31 @@
 "设置终端显示颜色数
 set t_Co=256
 set term=screen-256color
-colorscheme zenburn
-" 设置终端背景,如solarized-dark和solarized-light就需要设置此选项
-"set background=dark
-let g:zenburn_transparent = 1
+colorscheme gruvbox
+"colorscheme spacegray
+" 设置主题背景,黑色主题需要设置此选项
+set background=dark
 
 "设置默认shell
 set shell=/bin/bash
 
 "关闭Scratch窗口
 set completeopt=menu,menuone,longest
-
-"(缩写为gfn)设置显示字体(linespace减小行距),只对gui有效
-"set guifont=Menlo\ for\ Powerline\ Bold\ 11
+"
+""""""""""""""""""
+" GUI 设定
+""""""""""""""""""
+"设置显示字体
+set guifont=Menlo\ for\ Powerline\ Bold\ 11
 "set guifont=Monaco\ for\ Powerline\ 11
-"set linespace=-2
+set guifont=Source\ Code\ Pro\ 13
+"linespace减小行距
+set linespace=-4
+"去掉多余的菜单栏、标题栏等
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
 
 "使用非兼容模式
 set nocompatible
@@ -340,6 +350,10 @@ Bundle 'gmarik/vundle'
 
 "在多窗口中切换时自动增大当前窗口
 "Bundle 'zhaocai/GoldenView.Vim'
+
+"两个开箱即用的主题
+Bundle 'ajh17/Spacegray.vim'
+Bundle 'morhetz/gruvbox'
 
 "Python 的智能语义补全
 Bundle 'davidhalter/jedi-vim'
