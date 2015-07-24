@@ -1,10 +1,11 @@
 "================================================通用设置=====================================================
 "设置终端显示颜色数
 set t_Co=256
-"set term=xterm-256color
+set term=screen-256color
 colorscheme zenburn
 " 设置终端背景,如solarized-dark和solarized-light就需要设置此选项
 "set background=dark
+let g:zenburn_transparent = 1
 
 "设置默认shell
 set shell=/bin/bash
@@ -102,9 +103,6 @@ set fileencodings=utf-8,chinese,latin1
 "设置帮助文档语言
 set helplang=cn
 
-"处理consle输出乱码
-language messages zh_CN.UTF-8
-
 "=================================================文件编辑设置=================================================
 "保存历史记录的条数
 set history=700
@@ -194,6 +192,23 @@ let g:tagbar_autoshowtag = 1
 let g:tagbar_width=30
 "打开这些后缀的文件时自动开启Tagbar
 "autocmd BufReadPost *.py,*.php,*.cpp,*.c,*.h,*.hpp,*.cc,*.cxx call tagbar#autoopen()
+
+""""""""""""""""""
+"设置jedi-vim
+""""""""""""""""""
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_select_first = 0
+let g:jedi#force_py_version = "auto"
+
+
+""""""""""""""""""
+"设置lusty-explorer
+""""""""""""""""""
+let g:LustyExplorerDefaultMappings = 0
+nmap <silent> <Leader>lf :LustyFilesystemExplorer<CR>
+nmap <silent> <Leader>lr :LustyFilesystemExplorerFromHere<CR>
+nmap <silent> <Leader>lb :LustyBufferExplorer<CR>
+nmap <silent> <Leader>lg :LustyBufferGrep<CR>
 
 
 """"""""""""""""""
@@ -326,6 +341,12 @@ Bundle 'gmarik/vundle'
 "在多窗口中切换时自动增大当前窗口
 "Bundle 'zhaocai/GoldenView.Vim'
 
+"Python 的智能语义补全
+Bundle 'davidhalter/jedi-vim'
+
+"文件查找器
+Bundle 'sjbach/lusty'
+
 "在左侧标记git状态(添加、删除行)
 Bundle 'airblade/vim-gitgutter'
 
@@ -355,9 +376,6 @@ Bundle 'mattn/emmet-vim'
 
 "快速查找项目文件
 Bundle 'kien/ctrlp.vim'
-
-"和ctrlp差不多,不过性能好像不如ctrlp
-"Bundle 'Yggdroot/LeaderF'
 
 "代码taglist，快速跳转
 Bundle 'majutsushi/tagbar'
@@ -423,7 +441,7 @@ Bundle 'mbbill/fencview'
 Bundle 'maksimr/vim-jsbeautify'
 Bundle 'einars/js-beautify'
 
-"支持正则的文本格式化神器
+"支持正则的文本格式化插件
 Bundle 'godlygeek/tabular'
 
 call vundle#end()
@@ -448,7 +466,7 @@ let g:user_emmet_expandabbr_key = '<C-y>'
 """"""""""""""""""""""""
 "indentline设置
 """"""""""""""""""""""""
-"let g:indentLine_color_term = 239
+let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
 "解决打开大文件卡的问题
 let g:indentLine_faster = 1
@@ -512,10 +530,11 @@ noremap <leader>h :h <C-r><C-w><CR>
 "快速切换工作目录到当前文件所在的目录
 nnoremap cd :cd %:p:h<CR>
 
-"更改<Esc>键的映射
+"更改默认映射
 inoremap jk <Esc>
-"注：下面这个映射可能导致插入模式下方向键无法使用的问题，原因未知
-"inoremap <Esc> <Nop>
+map <C-x>l <C-g>
+"map <C-g> <C-c>
+cmap <C-g> <C-c>
 
 "可视模式下常用映射
 vnoremap <expr> I ForceBlockwiseVisual('I')
@@ -601,9 +620,9 @@ nnoremap d<Space><Space> :s/\v^\s+//g<CR>:nohlsearch<CR>
 "visual mode下使用I或A时自动转为visual block mode
 function! ForceBlockwiseVisual(key)
     if mode() == 'v'
-        return "\<C-v>" . a:key
+	return "\<C-v>" . a:key
     elseif mode() == 'V'
-        return "\<C-v>0o$" . a:key
+	return "\<C-v>0o$" . a:key
     else | return a:key |endif
 endfunction
 
