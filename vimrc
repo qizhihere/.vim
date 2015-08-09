@@ -3,7 +3,6 @@
 set t_Co=256
 set term=screen-256color
 colorscheme gruvbox
-"colorscheme spacegray
 " 设置主题背景,黑色主题需要设置此选项
 set background=dark
 
@@ -17,7 +16,7 @@ set completeopt=menu,menuone,longest
 " GUI 设定
 """"""""""""""""""
 "设置显示字体
-set guifont=Menlo\ for\ Powerline\ Bold\ 11
+"set guifont=Menlo\ for\ Powerline\ Bold\ 11
 "set guifont=Monaco\ for\ Powerline\ 11
 set guifont=Source\ Code\ Pro\ 13
 "linespace减小行距
@@ -526,8 +525,8 @@ let g:ctrlp_custom_ignore = {
 
 "=================================================快捷键设置====================================================
 "快速保存、退出
-noremap <silent> <leader>w :w!<CR>
-noremap <silent> <leader>ww :w !sudo tee > /dev/null %<CR>
+noremap <silent> <leader>w :w !sudo tee > /dev/null %<CR>
+noremap <silent> <leader>ww :w!<CR>
 noremap <silent> <leader>wa :wa!<CR>
 noremap <silent> <leader>q :q!<CR>
 noremap <silent> <leader>qa :qa!<CR>
@@ -546,9 +545,50 @@ nnoremap cd :cd %:p:h<CR>
 
 "更改默认映射
 inoremap jk <Esc>
-map <C-x>l <C-g>
+cnoremap jk <Esc>
+vnoremap jk <Esc>
+snoremap jk <Esc>
+
+"Emacs style keybindings
+"===================================================================
 "map <C-g> <C-c>
-cmap <C-g> <C-c>
+noremap <C-x>l <C-g>
+cnoremap <C-g> <C-c>
+
+" insert mode
+imap <C-b> <Left>
+imap <C-f> <Right>
+imap <C-a> <C-o>:call <SID>home()<CR>
+imap <C-e> <End>
+imap <C-d> <Del>
+imap <C-h> <BS>
+
+" command line mode
+cmap <C-p> <Up>
+cmap <C-n> <Down>
+cmap <C-b> <Left>
+cmap <C-f> <Right>
+cmap <C-a> <Home>
+cmap <C-e> <End>
+cnoremap <C-d> <Del>
+cnoremap <C-h> <BS>
+cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
+
+" command-T window
+let g:CommandTCursorLeftMap  = ['<Left>',  '<C-b>']
+let g:CommandTCursorRightMap = ['<Right>', '<C-f>']
+let g:CommandTBackspaceMap   = ['<BS>',    '<C-h>']
+let g:CommandTDeleteMap      = ['<Del>',   '<C-d>']
+
+function! s:home()
+  let start_col = col('.')
+  normal! ^
+  if col('.') == start_col
+    normal! 0
+  endif
+  return ''
+endfunction
+"===================================================================
 
 "可视模式下常用映射
 vnoremap <expr> I ForceBlockwiseVisual('I')
@@ -562,7 +602,7 @@ vnoremap k <Up>
 "搜索映射(search)
 nnoremap \/ :nohlsearch<CR>
 
-"系统剪贴板复制、粘贴、删除
+"系统剪贴板复制、粘贴、删除(gvim)
 noremap <leader>y "+y
 noremap <leader>yy "+yy
 noremap <leader>P "+P
@@ -655,3 +695,6 @@ function! MaximizeToggle()
     only
   endif
 endfunction
+
+"在插件全部载入之后重新设置配色主题
+colorscheme spacegray
