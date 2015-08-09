@@ -55,7 +55,7 @@ set showcmd
 set cmdheight=1
 
 "操作符等待时间(ms)
-set timeoutlen=500
+set timeoutlen=300
 
 "显示状态栏,默认为0,即不显示
 set laststatus=2
