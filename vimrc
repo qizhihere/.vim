@@ -1,5 +1,3 @@
-"================================================通用设置=====================================================
-"设置终端显示颜色数
 set t_Co=256
 set term=screen-256color
 colorscheme gruvbox
@@ -55,7 +53,7 @@ set showcmd
 set cmdheight=1
 
 "操作符等待时间(ms)
-set timeoutlen=300
+set timeoutlen=400
 
 "显示状态栏,默认为0,即不显示
 set laststatus=2
@@ -302,9 +300,9 @@ let g:DoxygenToolkit_blockFooter=""
 let g:DoxygenToolkit_authorName="littleqz <qizhihere@gmail.com>"
 let g:doxygen_enhanced_color=1
 let g:DoxygenToolkit_briefTag_funcName="yes"
-nnoremap <leader><leader>/, :DoxAuthor<CR>
-nnoremap <leader><leader>/. :DoxLic<CR>
-nnoremap <leader><leader>// :Dox<CR>
+nnoremap ;a :DoxAuthor<CR>
+nnoremap ;l :DoxLic<CR>
+nnoremap ;; :Dox<CR>
 
 
 """"""""""""""""""""""""
@@ -554,6 +552,8 @@ snoremap jk <Esc>
 "map <C-g> <C-c>
 noremap <C-x>l <C-g>
 cnoremap <C-g> <C-c>
+inoremap <C-r> <Esc>?
+inoremap <C-s> <Esc>/
 
 " insert mode
 imap <C-b> <Left>
@@ -600,7 +600,7 @@ vnoremap j <Down>
 vnoremap k <Up>
 
 "搜索映射(search)
-nnoremap \/ :nohlsearch<CR>
+nnoremap \\ :nohlsearch<CR>
 
 "系统剪贴板复制、粘贴、删除(gvim)
 noremap <leader>y "+y
@@ -653,11 +653,8 @@ iabbrev py,, #!/usr/bin/env python2.7<CR># -*- coding: utf-8 -*-
 iabbrev php,, <?php<CR>
 iabbrev sh,, #!/usr/bin/env bash<CR>jkxa
 
-"行尾增加分号
-nnoremap ;; mzg_a;<Esc>`z
-
 "在行首插入行号
-nnoremap <leader>l :g/^/exec "s/^/".strpart(line(".")." ", 0, 4)<CR>
+"nnoremap <leader>l :g/^/exec "s/^/".strpart(line(".")." ", 0, 4)<CR>
 
 "插入数字序列
 "1.使用seq命令，格式：:r!seq start step end,step可以是负数
