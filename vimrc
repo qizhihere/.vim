@@ -212,6 +212,7 @@ let g:jedi#force_py_version = "auto"
 "设置lusty-explorer
 """"""""""""""""""
 let g:LustyExplorerDefaultMappings = 0
+let g:LustyJugglerSuppressRubyWarning = 1
 nmap <silent> <Leader>f :LustyFilesystemExplorer<CR>
 nmap <silent> <Leader>e :LustyFilesystemExplorerFromHere<CR>
 nmap <silent> <Leader>b :LustyBufferExplorer<CR>
