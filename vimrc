@@ -144,7 +144,6 @@ Bundle 'gmarik/vundle'
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'mbbill/fencview'
 Bundle 'jiangmiao/auto-pairs'
-Bundle 'jdevera/vim-cs-explorer'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'lilydjwg/colorizer'
