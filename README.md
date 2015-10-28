@@ -4,15 +4,10 @@ This is my personal vim configs git repo.
 ## Installation
 1. clone into your home dir:
 
-		git clone https://github.com/qizhihere/vim /tmp/vim
-	    mv /tmp/vim ~/.vim
+        git clone https://github.com/qizhihere/vim ~/.vim
 
-2. create a symbolic link: 
-		
-		cd ~; ln -sf .vim/vimrc .vimrc
+2. install vim plugins:
 
-3. install vim plugins:
-    * open vim
-    * :BundleInstall and waiting for installation
+        sh ~/.vim/install.sh
 
-4. restart vim and enjoy!
+3. restart vim and enjoy!
