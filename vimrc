@@ -372,15 +372,15 @@ vnoremap j <Down>
 vnoremap k <Up>
 
 " system clipboard
-noremap <leader>y "+y
-noremap <leader>yy "+yy
-noremap <leader>P "+P
-noremap <leader>p "+p
+noremap <leader>cy "+y
+noremap <leader>cyy "+yy
+noremap <leader>cP "+P
+noremap <leader>cp "+p
 noremap <leader>pp "+pp
-noremap <leader>d "+d
-noremap <leader>dd "+dd
-noremap <leader>x "+x
-noremap <leader>Y "+y$
+noremap <leader>cd "+d
+noremap <leader>cdd "+dd
+noremap <leader>cx "+x
+noremap <leader>cY "+y$
 
 " move block
 vnoremap < <gv
