@@ -249,19 +249,10 @@ let g:user_emmet_expandabbr_key = '<C-j>'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" jsbeautify: formatting web files
+" formatting code
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'maksimr/vim-jsbeautify'
-Bundle 'einars/js-beautify'
-"配置文件路径
-let g:editorconfig_Beautifier = expand("~/") . '.vim/.editorconfig'
-"按键映射
-"map <C-m> :call JsBeautify()<CR>
-autocmd FileType javascript noremap <leader>ff :call JsBeautify()
-" for html
-autocmd FileType html noremap <leader>ff :call HtmlBeautify()
-" for css or scss
-autocmd FileType css noremap <leader>ff :call CSSBeautify()
+Bundle 'Chiel92/vim-autoformat'
+noremap <F3> :Autoformat<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
