@@ -1,5 +1,6 @@
 .directory
 /*
+!/install.sh
 !vimrc
 !/colors/
 !/bundle
