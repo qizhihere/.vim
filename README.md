@@ -11,3 +11,16 @@ This is my personal vim configs git repo.
         sh ~/.vim/install.sh
 
 3. restart vim and enjoy!
+
+## Screenshots
+Overview:
+
+![overview](./screenshots/1.png)
+
+NERDTree:
+
+![nerdtree](./screenshots/2.png)
+
+Auto complete:
+
+![auto complete](./screenshots/3.png)
