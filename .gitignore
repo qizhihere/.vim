@@ -7,6 +7,7 @@
 /bundle/*
 !/bundle/vundle/
 !/tools
+!/screenshots
 !.editorconfig
 !README.md
 !.gitignore
