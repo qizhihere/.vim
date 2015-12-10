@@ -1,12 +1,23 @@
 """"""""""""""""""""""""""""""""""""""""""""""""
 " style settings
 """"""""""""""""""""""""""""""""""""""""""""""""
-colorscheme gruvbox
 set background=dark
+function! s:load_color()
+    if filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
+        let g:solarized_termcolors=256
+        let g:solarized_termtrans=1
+        let g:solarized_contrast="normal"
+        let g:solarized_visibility="low"
+        color solarized
+        highlight clear SignColumn
+        highlight clear LineNr
+        hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
+        hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+        hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
+    endif
+endfunction
 
 " font settings
-"set guifont=Menlo\ for\ Powerline\ Bold\ 11
-"set guifont=Monaco\ for\ Powerline\ 11
 set guifont=Source\ Code\ Pro\ 13
 set linespace=-4
 
@@ -16,6 +27,10 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
+" set default window split position
+set splitright
+set splitbelow
+
 " disable mouse
 set mouse=
 set selection=exclusive
@@ -24,8 +39,15 @@ set cmdheight=1
 
 " status line
 set laststatus=2
-set statusline=%F%r%m,%{&ff}\ %=%{&fileencoding}\ \ %l,%c\ %p%%
-
+set statusline=%<%f\                     " Filename
+set statusline+=%w%h%m%r                 " Options
+set statusline+=%{fugitive#statusline()} " Git Hotness
+set statusline+=\ [%{&ff}/%Y]            " Filetype
+set statusline+=\ [%{getcwd()}]          " Current dir
+set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+let g:airline_theme="solarized"
+let g:airline_left_sep='›'
+let g:airline_right_sep='‹'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -58,11 +80,15 @@ set ruler
 " show relative line number
 set relativenumber
 set number
-set nocursorline
+set cursorline
 set scrolloff=3
 
 set showcmd
 set foldenable
+
+" show invisible whitespace chars
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 " tab/indent settings
 set smarttab
@@ -122,7 +148,11 @@ set ffs=unix,dos,mac
 "set noendofline
 " don't auto break lines when editing html,css... files
 autocmd! BufNewFile,BufRead *.html,*.htm,*.css,*.php,*.py setlocal nowrap
+" automatically change directory to current work dir
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
+" File Explorer
+let g:netrw_liststyle=3
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -142,6 +172,8 @@ Bundle 'gmarik/vundle'
 """"""""""""""""""""""""""""""""""""""""""""""""
 " basic plugins
 """"""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'bling/vim-airline'
 Bundle 'mbbill/fencview'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kevinw/pyflakes-vim'
@@ -150,6 +182,45 @@ Bundle 'lilydjwg/colorizer'
 Bundle 'tpope/vim-surround'
 Bundle 'mhinz/vim-startify'
 Bundle 'DataWraith/auto_mkdir'
+Bundle 'bling/vim-bufferline'
+Bundle 'mhinz/vim-signify'
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+" fugitive settings
+""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'tpope/vim-fugitive'
+if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+    nnoremap <silent> <leader>gii :Gstatus<CR>
+    nnoremap <silent> <leader>gid :Gdiff<CR>
+    nnoremap <silent> <leader>gic :Gcommit<CR>
+    nnoremap <silent> <leader>gib :Gblame<CR>
+    nnoremap <silent> <leader>gil :Glog<CR>
+    nnoremap <silent> <leader>gip :Git push<CR>
+    nnoremap <silent> <leader>gir :Gread<CR>
+    nnoremap <silent> <leader>giw :Gwrite<CR>
+    nnoremap <silent> <leader>gie :Gedit<CR>
+    " Mnemonic _i_nteractive
+    nnoremap <silent> <leader>gia :Git add -p %<CR>
+    nnoremap <silent> <leader>gig :SignifyToggle<CR>
+endif
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+" nerdtree settings
+""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'scrooloose/nerdtree'
+if isdirectory(expand("~/.vim/bundle/nerdtree"))
+    let g:NERDTreeDirArrowExpandable = '▸'
+    let g:NERDTreeDirArrowCollapsible = '▾'
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+    let NERDTreeChDirMode=0
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+    let g:nerdtree_tabs_open_on_gui_startup=0
+endif
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -198,7 +269,7 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
-noremap <leader>un :UndotreeToggle<cr>
+noremap <leader>u :UndotreeToggle<cr>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -312,8 +383,7 @@ syntax on
 filetype on
 filetype plugin on
 filetype indent on
-
-
+call s:load_color()
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -322,8 +392,22 @@ filetype indent on
 " set leader key of custom maps
 let mapleader=";"
 
+noremap <silent> <leader>e :NERDTreeFind<CR>
 noremap <silent> <leader>w :w !sudo tee > /dev/null %<CR>
 noremap <silent> <leader>q :qa!<CR>
+
+" open terminal
+noremap <f6> :Silent !$SHELL<CR>
+
+" quickly switch window
+noremap <c-j> <c-w>j<c-w>_
+noremap <c-k> <c-w>k<c-w>_
+noremap <c-l> <c-w>l<c-w>_
+noremap <c-h> <c-w>h<c-w>_
+
+" quickly switch buffer
+noremap <silent> <leader>[ :bp!<CR>
+noremap <silent> <leader>] :bn!<CR>
 
 " quickly open files
 nnoremap ,e :e $HOME/.vim/vimrc<CR>
@@ -386,10 +470,6 @@ noremap <leader>Y "+y$
 vnoremap < <gv
 vnoremap > >gv
 
-" buffer switching
-nnoremap <C-L> :bn!<CR>
-nnoremap <C-H> :bp!<CR>
-
 " maximize/restore window
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 
@@ -410,6 +490,8 @@ iabbrev sh,, #!/usr/bin/env bash<CR>jkxa
 
 
 "=============================================== function start ================================================
+command! -nargs=+ Silent execute 'silent <args>' | redraw!
+
 function! s:home()
   let start_col = col('.')
   normal! ^
