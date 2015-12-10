@@ -9,8 +9,8 @@ function! s:load_color()
         let g:solarized_contrast="normal"
         let g:solarized_visibility="low"
         color solarized
-        highlight clear SignColumn
-        highlight clear LineNr
+        hi clear SignColumn
+        hi clear LineNr
         hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
         hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
         hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
@@ -63,6 +63,9 @@ set shell=/bin/bash
 """"""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 
+" set leader key of custom maps
+let mapleader=";"
+
 " prevent utf8 bom
 setglobal nobomb
 " no backup when overwrite files
@@ -73,7 +76,7 @@ set bufhidden=hide
 " history
 set history=1000
 " operator mode waiting time(ms)
-set timeoutlen=400
+set timeoutlen=600
 
 " show position
 set ruler
@@ -256,6 +259,7 @@ Bundle 'airblade/vim-gitgutter'
 nmap <Leader>ggn <Plug>GitGutterNextHunk
 nmap <Leader>ggp <Plug>GitGutterPrevHunk
 nmap <Leader>ggv <Plug>GitGutterPreviewHunk
+let g:gitgutter_override_sign_column_highlight = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -389,9 +393,6 @@ call s:load_color()
 """"""""""""""""""""""""""""""""""""""""""""""""
 " key settings
 """"""""""""""""""""""""""""""""""""""""""""""""
-" set leader key of custom maps
-let mapleader=";"
-
 noremap <silent> <leader>e :NERDTreeFind<CR>
 noremap <silent> <leader>w :w !sudo tee > /dev/null %<CR>
 noremap <silent> <leader>q :qa!<CR>
