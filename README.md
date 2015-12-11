@@ -24,3 +24,10 @@ NERDTree:
 Auto complete:
 
 ![auto complete](./screenshots/3.png)
+
+Startify:
+
+![startify](./screenshots/4.png)
+
+Markdown:
+![markdown](./screenshots/5.png)
