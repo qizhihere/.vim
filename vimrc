@@ -83,7 +83,7 @@ set ruler
 " show relative line number
 set relativenumber
 set number
-set cursorline
+set nocursorline
 set scrolloff=3
 
 set showcmd
