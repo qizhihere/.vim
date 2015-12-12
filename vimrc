@@ -120,6 +120,8 @@ set magic
 set noshowmatch
 set matchtime=5
 
+" show quotes when editing json files
+set conceallevel=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
