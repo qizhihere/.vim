@@ -11,6 +11,11 @@ function! s:load_color()
         color solarized
         hi clear SignColumn
         hi clear LineNr
+        hi DiffAdd ctermbg=NONE guibg=NONE
+        hi DiffChange ctermbg=NONE guibg=NONE
+        hi DiffDelete ctermbg=NONE guibg=NONE
+        hi DiffText ctermbg=NONE guibg=NONE
+        hi VertSplit ctermbg=NONE guibg=NONE
         hi Pmenu  guifg=#000000 guibg=#F8F8F8 ctermfg=black ctermbg=Lightgray
         hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
         hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=darkcyan cterm=NONE
@@ -19,7 +24,6 @@ endfunction
 
 " font settings
 set guifont=Source\ Code\ Pro\ 13
-set linespace=-4
 
 " remove bars
 set guioptions-=m
@@ -30,6 +34,9 @@ set guioptions-=L
 " set default window split position
 set splitright
 set splitbelow
+
+" set split separator
+set fillchars+=vert:│
 
 " disable mouse
 set mouse=
@@ -234,12 +241,11 @@ let g:tagbar_width = 30
 let g:tagbar_zoomwidth = 0
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
-let g:tagbar_show_linenumbers = 1
-let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_show_linenumbers = 0
+let g:tagbar_iconchars = ['▸', '▾']
 let g:tagbar_autoshowtag = 1
 let g:tagbar_width=30
 nnoremap <leader>tl :TagbarToggle<CR>
-nnoremap <leader>ts :tselect<CR>
 nnoremap <leader>tu :silent exec "!ctags -R *" <Bar> redraw! <Bar> set tags=./tags,./TAGS,tags,TAGS <CR>
 
 
