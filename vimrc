@@ -346,6 +346,7 @@ let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
 " fix vim stuck when opening big files
 let g:indentLine_faster = 1
+let g:indentLine_conceallevel = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
