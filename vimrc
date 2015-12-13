@@ -421,7 +421,7 @@ call s:load_color()
 " key settings
 """"""""""""""""""""""""""""""""""""""""""""""""
 command W :call WriteDwim()<CR>
-cabbrev w :call WriteDwim()<CR>
+cnoreabbrev w :call WriteDwim()<CR>
 au BufEnter * setlocal noreadonly
 noremap <silent> <leader>e :NERDTreeFind<CR>
 noremap <silent> <leader>w :call WriteDwim()<CR>
