@@ -420,8 +420,11 @@ call s:load_color()
 """"""""""""""""""""""""""""""""""""""""""""""""
 " key settings
 """"""""""""""""""""""""""""""""""""""""""""""""
+command W :call WriteDwim()<CR>
+cabbrev w :call WriteDwim()<CR>
+au BufEnter * setlocal noreadonly
 noremap <silent> <leader>e :NERDTreeFind<CR>
-noremap <silent> <leader>w :w !sudo tee > /dev/null %<CR>
+noremap <silent> <leader>w :call WriteDwim()<CR>
 noremap <silent> <leader>q :qa!<CR>
 
 " open terminal
@@ -533,10 +536,12 @@ endfunction
 
 function! ForceBlockwiseVisual(key)
     if mode() == 'v'
-    return "\<C-v>" . a:key
+        return "\<C-v>" . a:key
     elseif mode() == 'V'
-    return "\<C-v>0o$" . a:key
-    else | return a:key |endif
+        return "\<C-v>0o$" . a:key
+    else
+        return a:key
+    endif
 endfunction
 
 function! MaximizeToggle()
@@ -555,13 +560,23 @@ function! MaximizeToggle()
   endif
 endfunction
 
+function! WriteDwim()
+    let file = expand('%')
+    if filewritable(file)
+        write
+    else
+        execute ':silent w !sudo tee % > /dev/null'
+        edit!
+    endif
+endfunction
+
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
 function! AppendModeline()
-  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+  let modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
         \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
-  call append(line("$"), l:modeline)
+  let modeline = substitute(&commentstring, "%s", modeline, "")
+  call append(line("$"), modeline)
 endfunction
 "=============================================== function end ================================================
