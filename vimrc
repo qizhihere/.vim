@@ -158,13 +158,31 @@ set ffs=unix,dos,mac
 " no newline at the end of file
 "set binary
 "set noendofline
+
+" File Explorer
+let g:netrw_liststyle=3
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+" file type settings
+""""""""""""""""""""""""""""""""""""""""""""""""
 " don't auto break lines when editing html,css... files
 autocmd! BufNewFile,BufRead *.html,*.htm,*.css,*.php,*.py setlocal nowrap
 " automatically change directory to current work dir
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
-" File Explorer
-let g:netrw_liststyle=3
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+"autocmd FileType go autocmd BufWritePre <buffer> Fmt
+autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+autocmd FileType haskell,puppet,ruby,yml setlocal expandtab shiftwidth=2 softtabstop=2
+" preceding line best in a plugin but here for now.
+
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
+" Workaround vim-commentary for Haskell
+autocmd FileType haskell setlocal commentstring=--\ %s
+" Workaround broken colour highlighting in Haskell
+autocmd FileType haskell,rust setlocal nospell
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -483,6 +501,8 @@ vnoremap > >gv
 " maximize/restore window
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 
+" add a modeline(magical line)
+nnoremap <silent> <leader>ml :call AppendModeline()<CR>
 
 " abbrevs
 iabbrev time,, Date: <Esc>:read !date "+%Y/%m/%d %H:%M:%S"<CR>kJ$a
@@ -533,5 +553,15 @@ function! MaximizeToggle()
     exec "mksession! " . s:maximize_session
     only
   endif
+endfunction
+
+" Append modeline after last line in buffer.
+" Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
+" files.
+function! AppendModeline()
+  let l:modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+        \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+  let l:modeline = substitute(&commentstring, "%s", l:modeline, "")
+  call append(line("$"), l:modeline)
 endfunction
 "=============================================== function end ================================================
