@@ -219,38 +219,34 @@ Bundle 'mhinz/vim-signify'
 " fugitive settings
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'tpope/vim-fugitive'
-if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
-    nnoremap <silent> <leader>gii :Gstatus<CR>
-    nnoremap <silent> <leader>gid :Gdiff<CR>
-    nnoremap <silent> <leader>gic :Gcommit<CR>
-    nnoremap <silent> <leader>gib :Gblame<CR>
-    nnoremap <silent> <leader>gil :Glog<CR>
-    nnoremap <silent> <leader>gip :Git push<CR>
-    nnoremap <silent> <leader>gir :Gread<CR>
-    nnoremap <silent> <leader>giw :Gwrite<CR>
-    nnoremap <silent> <leader>gie :Gedit<CR>
-    " Mnemonic _i_nteractive
-    nnoremap <silent> <leader>gia :Git add -p %<CR>
-    nnoremap <silent> <leader>gig :SignifyToggle<CR>
-endif
+nnoremap <silent> <leader>gii :Gstatus<CR>
+nnoremap <silent> <leader>gid :Gdiff<CR>
+nnoremap <silent> <leader>gic :Gcommit<CR>
+nnoremap <silent> <leader>gib :Gblame<CR>
+nnoremap <silent> <leader>gil :Glog<CR>
+nnoremap <silent> <leader>gip :Git push<CR>
+nnoremap <silent> <leader>gir :Gread<CR>
+nnoremap <silent> <leader>giw :Gwrite<CR>
+nnoremap <silent> <leader>gie :Gedit<CR>
+" Mnemonic _i_nteractive
+nnoremap <silent> <leader>gia :Git add -p %<CR>
+nnoremap <silent> <leader>gig :SignifyToggle<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " nerdtree settings
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'scrooloose/nerdtree'
-if isdirectory(expand("~/.vim/bundle/nerdtree"))
-    let g:NERDTreeDirArrowExpandable = '▸'
-    let g:NERDTreeDirArrowCollapsible = '▾'
-    let NERDTreeShowBookmarks=1
-    let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
-    let NERDTreeChDirMode=0
-    let NERDTreeQuitOnOpen=1
-    let NERDTreeMouseMode=2
-    let NERDTreeShowHidden=1
-    let NERDTreeKeepTreeInNewTab=1
-    let g:nerdtree_tabs_open_on_gui_startup=0
-endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.py[cd]$', '\~$', '\.swo$', '\.swp$', '^\.git$', '^\.hg$', '^\.svn$', '\.bzr$']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeMouseMode=2
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
+let g:nerdtree_tabs_open_on_gui_startup=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -330,14 +326,14 @@ let g:sneak#s_next = 1
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'godlygeek/tabular'
 function! s:align()
-  let p = '^\s*|\s.*\s|\s*$'
-  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-    let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-    let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-    Tabularize/|/l1
-    normal! 0
-    call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-  endif
+    let p = '^\s*|\s.*\s|\s*$'
+    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+        Tabularize/|/l1
+        normal! 0
+        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+    endif
 endfunction
 
 
@@ -401,9 +397,9 @@ let g:ctrlp_map = ',,'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar.gz,*.tgz,*.rar
 let g:ctrlp_open_multiple_files = 'v'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git)$',
-  \ 'file': '\v\.(jpg|jpeg|png)$',
-  \ }
+            \ 'dir':  '\v[\/]\.(git)$',
+            \ 'file': '\v\.(jpg|jpeg|png)$',
+            \ }
 
 
 
@@ -420,11 +416,8 @@ call s:load_color()
 """"""""""""""""""""""""""""""""""""""""""""""""
 " key settings
 """"""""""""""""""""""""""""""""""""""""""""""""
-command W :call WriteDwim()<CR>
-cnoreabbrev w :call WriteDwim()<CR>
 au BufEnter * setlocal noreadonly
 noremap <silent> <leader>e :NERDTreeFind<CR>
-noremap <silent> <leader>w :call WriteDwim()<CR>
 noremap <silent> <leader>q :qa!<CR>
 
 " open terminal
@@ -526,12 +519,12 @@ iabbrev sh,, #!/usr/bin/env bash<CR>jkxa
 command! -nargs=+ Silent execute 'silent <args>' | redraw!
 
 function! s:home()
-  let start_col = col('.')
-  normal! ^
-  if col('.') == start_col
-    normal! 0
-  endif
-  return ''
+    let start_col = col('.')
+    normal! ^
+    if col('.') == start_col
+        normal! 0
+    endif
+    return ''
 endfunction
 
 function! ForceBlockwiseVisual(key)
@@ -545,28 +538,18 @@ function! ForceBlockwiseVisual(key)
 endfunction
 
 function! MaximizeToggle()
-  if exists("s:maximize_session")
-    exec "source " . s:maximize_session
-    call delete(s:maximize_session)
-    unlet s:maximize_session
-    let &hidden=s:maximize_hidden_save
-    unlet s:maximize_hidden_save
-  else
-    let s:maximize_hidden_save = &hidden
-    let s:maximize_session = tempname()
-    set hidden
-    exec "mksession! " . s:maximize_session
-    only
-  endif
-endfunction
-
-function! WriteDwim()
-    let file = expand('%')
-    if filewritable(file)
-        write
+    if exists("s:maximize_session")
+        exec "source " . s:maximize_session
+        call delete(s:maximize_session)
+        unlet s:maximize_session
+        let &hidden=s:maximize_hidden_save
+        unlet s:maximize_hidden_save
     else
-        execute ':silent w !sudo tee % > /dev/null'
-        edit!
+        let s:maximize_hidden_save = &hidden
+        let s:maximize_session = tempname()
+        set hidden
+        exec "mksession! " . s:maximize_session
+        only
     endif
 endfunction
 
@@ -574,9 +557,21 @@ endfunction
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
 " files.
 function! AppendModeline()
-  let modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
-        \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
-  let modeline = substitute(&commentstring, "%s", modeline, "")
-  call append(line("$"), modeline)
+    let modeline = printf(" vim: set ft=%s ts=%d sw=%d tw=%d %set :",
+                \ &filetype, &tabstop, &shiftwidth, &textwidth, &expandtab ? '' : 'no')
+    let modeline = substitute(&commentstring, "%s", modeline, "")
+    call append(line("$"), modeline)
+endfunction
+
+function! StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
 endfunction
 "=============================================== function end ================================================
