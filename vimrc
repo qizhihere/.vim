@@ -417,6 +417,7 @@ call s:load_color()
 " key settings
 """"""""""""""""""""""""""""""""""""""""""""""""
 au BufEnter * setlocal noreadonly
+noremap <leader>w :call WriteDwim()<CR>
 noremap <silent> <leader>e :NERDTreeFind<CR>
 noremap <silent> <leader>q :qa!<CR>
 
@@ -550,6 +551,16 @@ function! MaximizeToggle()
         set hidden
         exec "mksession! " . s:maximize_session
         only
+    endif
+endfunction
+
+function! WriteDwim()
+    let file = expand('%')
+    if filewritable(file)
+        write
+    else
+        execute ':silent w !sudo tee % > /dev/null'
+        edit!
     endif
 endfunction
 
