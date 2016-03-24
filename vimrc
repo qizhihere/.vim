@@ -440,11 +440,12 @@ nnoremap ,e :e $HOME/.vim/vimrc<CR>
 " switch to current directory
 nnoremap cd :cd %:p:h<CR>
 
-" remap default escape key
-inoremap jk <Esc>
-cnoremap jk <Esc>
-vnoremap jk <Esc>
-snoremap jk <Esc>
+" stop using `jk`, use `C-[` instead
+" " remap default escape key
+" inoremap jk <Esc>
+" cnoremap jk <Esc>
+" vnoremap jk <Esc>
+" snoremap jk <Esc>
 
 " Emacs style keybindings
 noremap <C-x>l <C-g>
