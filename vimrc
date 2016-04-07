@@ -442,10 +442,10 @@ nnoremap cd :cd %:p:h<CR>
 
 " stop using `jk`, use `C-[` instead
 " " remap default escape key
-" inoremap jk <Esc>
-" cnoremap jk <Esc>
-" vnoremap jk <Esc>
-" snoremap jk <Esc>
+inoremap jk <Esc>
+cnoremap jk <Esc>
+vnoremap jk <Esc>
+snoremap jk <Esc>
 
 " Emacs style keybindings
 noremap <C-x>l <C-g>
