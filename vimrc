@@ -313,6 +313,11 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
+""""""""""""""""""""""""""""""""""""""""""""""""
+" quick-scope: quick jump with f, F, t, T
+""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'unblevable/quick-scope'
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vim-sneak: quick jump with two chars
