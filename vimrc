@@ -219,7 +219,7 @@ Bundle 'mhinz/vim-signify'
 " fugitive settings
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'tpope/vim-fugitive'
-nnoremap <silent> <leader>gii :Gstatus<CR>
+nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gid :Gdiff<CR>
 nnoremap <silent> <leader>gic :Gcommit<CR>
 nnoremap <silent> <leader>gib :Gblame<CR>
@@ -429,11 +429,9 @@ noremap <silent> <leader>q :qa!<CR>
 " open terminal
 noremap <f6> :Silent !$SHELL<CR>
 
-" quickly switch window
-noremap <c-j> <c-w>j<c-w>_
-noremap <c-k> <c-w>k<c-w>_
-noremap <c-l> <c-w>l<c-w>_
-noremap <c-h> <c-w>h<c-w>_
+" quickly switch buffer
+noremap <silent> <C-h> :bp!<CR>
+noremap <silent> <C-l> :bn!<CR>
 
 " quickly switch buffer
 noremap <silent> <leader>[ :bp!<CR>
@@ -463,7 +461,6 @@ imap <C-b> <Left>
 imap <C-f> <Right>
 imap <C-e> <End>
 imap <C-d> <Del>
-imap <C-h> <BS>
 imap <C-a> <C-o>:call <SID>home()<CR>
 
 " command line mode
@@ -474,7 +471,6 @@ cmap <C-f> <Right>
 cmap <C-a> <Home>
 cmap <C-e> <End>
 cnoremap <C-d> <Del>
-cnoremap <C-h> <BS>
 cnoremap <C-k> <C-f>D<C-c><C-c>:<Up>
 
 " visual mode
