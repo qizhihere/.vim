@@ -17,10 +17,6 @@ Overview:
 
 ![overview](./screenshots/1.png)
 
-NERDTree:
-
-![nerdtree](./screenshots/2.png)
-
 Auto complete:
 
 ![auto complete](./screenshots/3.png)
