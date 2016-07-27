@@ -31,6 +31,9 @@ set guioptions-=T
 set guioptions-=r
 set guioptions-=L
 
+" fix fillchars and listchars errors
+scriptencoding utf-8
+
 " set default window split position
 set splitright
 set splitbelow
@@ -297,33 +300,12 @@ map #  <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-""""""""""""""""""""""""""""""""""""""""""""""""
-" quick-scope: quick jump with f, F, t, T
-""""""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'unblevable/quick-scope'
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vim-sneak: quick jump with two chars
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'justinmk/vim-sneak'
 let g:sneak#s_next = 1
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""
-" Tabular: format text with regex
-""""""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'godlygeek/tabular'
-function! s:align()
-    let p = '^\s*|\s.*\s|\s*$'
-    if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-        let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-        let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-        Tabularize/|/l1
-        normal! 0
-        call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-    endif
-endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -407,7 +389,6 @@ call s:load_color()
 """"""""""""""""""""""""""""""""""""""""""""""""
 au BufEnter * setlocal noreadonly
 noremap <leader>w :call WriteDwim()<CR>
-noremap <silent> <leader>e :NERDTreeFind<CR>
 noremap <silent> <leader>q :qa!<CR>
 
 " open terminal
