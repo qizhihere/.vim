@@ -5,7 +5,7 @@
 !/colors/
 !/bundle
 /bundle/*
-!/bundle/vundle/
+!/bundle/Vundle.vim/
 !/tools
 !/screenshots
 !.editorconfig
