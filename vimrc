@@ -196,30 +196,30 @@ set makeprg=gcc\ -std=c99\ -o\ %<\ %\ -Wall\ -g
 
 "=============================================== vundle start ================================================
 filetype off
-set runtimepath+=~/.vim/bundle/vundle/
+set runtimepath+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " basic plugins
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-airline/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'mbbill/fencview'
-Bundle 'jiangmiao/auto-pairs'
-Bundle 'kevinw/pyflakes-vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'tpope/vim-surround'
-Bundle 'mhinz/vim-startify'
-Bundle 'DataWraith/auto_mkdir'
-Bundle 'bling/vim-bufferline'
-Bundle 'mhinz/vim-signify'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'mbbill/fencview'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'kevinw/pyflakes-vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tpope/vim-surround'
+Plugin 'mhinz/vim-startify'
+Plugin 'DataWraith/auto_mkdir'
+Plugin 'bling/vim-bufferline'
+Plugin 'mhinz/vim-signify'
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " fugitive settings
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 nnoremap <silent> <leader>gs :Gstatus<CR>
 nnoremap <silent> <leader>gid :Gdiff<CR>
 nnoremap <silent> <leader>gic :Gcommit<CR>
@@ -237,7 +237,7 @@ nnoremap <silent> <leader>gig :SignifyToggle<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""
 " tagbar settings
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 let g:tagbar_width = 30
 let g:tagbar_zoomwidth = 0
 let g:tagbar_autofocus = 1
@@ -253,7 +253,7 @@ nnoremap <leader>tu :silent exec "!ctags -R *" <Bar> redraw! <Bar> set tags=./ta
 """"""""""""""""""""""""""""""""""""""""""""""""
 " jedi-vim: Python intelligent completion
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'davidhalter/jedi-vim'
+Plugin 'davidhalter/jedi-vim'
 let g:jedi#auto_initialization = 1
 let g:jedi#popup_select_first = 0
 let g:jedi#force_py_version = "auto"
@@ -262,7 +262,7 @@ let g:jedi#force_py_version = "auto"
 """"""""""""""""""""""""""""""""""""""""""""""""
 " git gutter: show git status on linum line
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 nmap <Leader>ggn <Plug>GitGutterNextHunk
 nmap <Leader>ggp <Plug>GitGutterPrevHunk
 nmap <Leader>ggv <Plug>GitGutterPreviewHunk
@@ -272,7 +272,7 @@ let g:gitgutter_override_sign_column_highlight = 0
 """"""""""""""""""""""""""""""""""""""""""""""""
 " undotree
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'mbbill/undotree'
+Plugin 'mbbill/undotree'
 if has('persistent_undo')
     let myUndoDir = expand("$HOME/.vim/tmp/undodir")
     " No console pops up
@@ -286,7 +286,7 @@ noremap <leader>u :UndotreeToggle<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""
 " incsearch: emacs-style search
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'haya14busa/incsearch.vim'
+Plugin 'haya14busa/incsearch.vim'
 let g:incsearch#auto_nohlsearch = 1
 map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
@@ -302,14 +302,14 @@ map g# <Plug>(incsearch-nohl-g#)
 """"""""""""""""""""""""""""""""""""""""""""""""
 " vim-sneak: quick jump with two chars
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'justinmk/vim-sneak'
+Plugin 'justinmk/vim-sneak'
 let g:sneak#s_next = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Emmet
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'mattn/emmet-vim'
+Plugin 'mattn/emmet-vim'
 let g:user_emmet_mode='i'
 let g:user_emmet_expandabbr_key = '<C-j>'
 
@@ -317,14 +317,14 @@ let g:user_emmet_expandabbr_key = '<C-j>'
 """"""""""""""""""""""""""""""""""""""""""""""""
 " formatting code
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'Chiel92/vim-autoformat'
+Plugin 'Chiel92/vim-autoformat'
 noremap <F3> :Autoformat<CR>
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 " indentline
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┊'
 " fix vim stuck when opening big files
@@ -335,7 +335,7 @@ let g:indentLine_conceallevel = 0
 """"""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic: syntax check
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'Syntastic'
+Plugin 'Syntastic'
 let g:syntastic_check_on_open=1
 let g:syntastic_phpcs_conf = "--tab-width=4 --standard=CodeIgniter"
 let makeprg = "php -l -d error_reporting=E_ALL -d display_errors=1"
@@ -347,9 +347,9 @@ nnoremap <leader>erp :lpre<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""
 " neocomplcache: cache completion
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
-Bundle 'Shougo/neosnippet-snippets'
+Plugin 'Shougo/neocomplcache'
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_max_list = 10
 let g:neocomplcache_max_keyword_width = 60
@@ -361,7 +361,7 @@ let g:neocomplcache_enable_fuzzy_completion = 1
 """"""""""""""""""""""""""""""""""""""""""""""""
 " ctrlp: quick file navigation
 """"""""""""""""""""""""""""""""""""""""""""""""
-Bundle 'kien/ctrlp.vim'
+Plugin 'kien/ctrlp.vim'
 let g:ctrlp_map = ',,'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.tar.gz,*.tgz,*.rar
 let g:ctrlp_open_multiple_files = 'v'
