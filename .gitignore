@@ -3,11 +3,8 @@
 !/install.sh
 !vimrc
 !/colors/
-!/bundle
-/bundle/*
-!/bundle/Vundle.vim/
 !/tools
-!/screenshots
+!/screenshots/
 !.editorconfig
 !README.md
 !.gitignore
