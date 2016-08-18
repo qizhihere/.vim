@@ -56,8 +56,6 @@ set statusline+=\ [%{&ff}/%Y]            " Filetype
 set statusline+=\ [%{getcwd()}]          " Current dir
 set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 let g:airline_theme="solarized"
-let g:airline_left_sep='›'
-let g:airline_right_sep='‹'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
@@ -206,7 +204,8 @@ Bundle 'gmarik/vundle'
 " basic plugins
 """"""""""""""""""""""""""""""""""""""""""""""""
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'mbbill/fencview'
 Bundle 'jiangmiao/auto-pairs'
 Bundle 'kevinw/pyflakes-vim'
