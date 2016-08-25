@@ -17,4 +17,4 @@ cd "$PWD" && {
     }
 }
 
-return 0
+exit 0
