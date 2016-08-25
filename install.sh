@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-PWD=$(realpath "$(dirname "$0")")
+PWD=$(readlink -f "$(dirname "$0")")
 cd "$PWD" && {
     git pull origin master
     git subtree pull --squash --prefix=bundle/Vundle.vim \
