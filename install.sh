@@ -16,3 +16,5 @@ cd "$PWD" && {
         eval "$cmd"
     }
 }
+
+return 0
